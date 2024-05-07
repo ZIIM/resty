@@ -1,13 +1,26 @@
 import React from 'react';
+import "./Results.scss";
 
-class Results extends React.Component {
-  render() {
+export type ArrayItems = {
+  name: string;
+  url: string;
+}
+
+export type Data = {
+  count:number;
+  results:Array<ArrayItems>;
+}
+
+export interface ResultsProps{
+  data: Data
+}
+
+function Results(props: ResultsProps): React.ReactElement {
     return (
       <section>
-        <pre>{this.props.data ? JSON.stringify(this.props.data, undefined, 2) : null}</pre>
+        <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
       </section>
     );
-  }
 }
 
 export default Results;
