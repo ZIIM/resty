@@ -1,4 +1,4 @@
-# Component Based UI
+# RESTY
 
 ## Getting Started
 
@@ -68,5 +68,7 @@ No Current Environmental Variables
 1.0.0
 
 ## Collaborators
-Brock Britton[https://github.com/brockbritton]
-Isai Chaidez[https://github.com/Arvoya]
+
+[Brock Britton](https://github.com/brockbritton)
+
+[Isai Chaidez](https://github.com/Arvoya)
