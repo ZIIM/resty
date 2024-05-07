@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -16,39 +16,33 @@ interface RequestParams {
 }
 
 function App(): React.ReactElement {
+  const [data, setData] = useState<Data | null>(null);
+  const [requestParams, setRequestParams] = useState<RequestParams>({});
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
-  }
-
-  callApi = (requestParams) => {
+  const callApi = (requestParams: RequestParams) => {
     // mock output
-    const data = {
+    const newData: Data = {
       count: 2,
       results: [
         {name: 'fake thing 1', url: 'http://fakethings.com/1'},
         {name: 'fake thing 2', url: 'http://fakethings.com/2'},
       ],
     };
-    this.setState({data, requestParams});
+    setData(newData);
+    setRequestParams(requestParams);
   }
 
   
     return (
-      <React.Fragment>
+        <React.Fragment>
         <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
-        <Form handleApiCall={this.callApi} />
-        <Results data={this.state.data} />
+        <div>Request Method: {requestParams.method}</div>
+        <div>URL: {requestParams.url}</div>
+        <Form handleApiCall={callApi} />
+        <Results data={data} />
         <Footer />
       </React.Fragment>
     );
-
 }
 
 export default App;
