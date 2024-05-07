@@ -11,7 +11,7 @@ Editor (not mandatory).
 
 ### Install
 
-    git clone git@github.com:Arvoya/resty.git
+    git clone https://github.com/ZIIM/resty.git
     cd resty
     npm install
 
