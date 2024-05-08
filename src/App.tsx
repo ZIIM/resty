@@ -24,6 +24,7 @@ function App(): React.ReactElement {
     const newData: Data = {
       count: 2,
       results: [
+        // maybe change these urls
         {name: 'fake thing 1', url: 'http://fakethings.com/1'},
         {name: 'fake thing 2', url: 'http://fakethings.com/2'},
       ],
