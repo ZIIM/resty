@@ -19,20 +19,20 @@ function Results(props: ResultsProps): React.ReactElement {
   // added this below to check that data is null for loading state 
   const isLoading = props.data === null; 
   
-  return (
+  // return (
+  //     <section>
+  //       <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
+  //     </section>
+  //   );
+    return (
       <section>
-        <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <pre>{JSON.stringify(props.data, undefined, 2)}</pre>
+        )}
       </section>
     );
-    // return (
-    //   <section>
-    //     {isLoading ? (
-    //       <p>Loading...</p>
-    //     ) : (
-    //       <pre>{JSON.stringify(props.data, undefined, 2)}</pre>
-    //     )}
-    //   </section>
-    // );
 }
 
 export default Results;
