@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Results.scss";
+// import { prettyPrintJson } from 'pretty-print-json';
 
 export type ArrayItems = {
   name: string;
@@ -19,11 +20,6 @@ function Results(props: ResultsProps): React.ReactElement {
   // added this below to check that data is null for loading state 
   const isLoading = props.data === null; 
   
-  // return (
-  //     <section>
-  //       <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
-  //     </section>
-  //   );
     return (
       <section>
         {isLoading ? (
@@ -36,3 +32,9 @@ function Results(props: ResultsProps): React.ReactElement {
 }
 
 export default Results;
+
+// return (
+  //     <section>
+  //       <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
+  //     </section>
+  //   );

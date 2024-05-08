@@ -16,10 +16,9 @@ function Form(props: FormProps): React.ReactElement {
   // State to track the URL input value CHATGPT
   const [url, setUrl] = useState<string>('');
 
-  // Handler for form submission
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    // Construct formData object
+    
     const formData: FormData = {
       method: selectedMethod,
       url: url,
