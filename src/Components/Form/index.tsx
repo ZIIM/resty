@@ -4,6 +4,7 @@ import './Form.scss';
 export type FormData = {
   method: string;
   url: string;
+  body?: string;
 };
 
 export type FormProps = {
@@ -15,6 +16,7 @@ function Form(props: FormProps): React.ReactElement {
   const [selectedMethod, setSelectedMethod] = useState<string>('GET');
   // State to track the URL input value CHATGPT
   const [url, setUrl] = useState<string>('');
+  const [body, setBody] = useState<string>('');// 28
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -22,6 +24,7 @@ function Form(props: FormProps): React.ReactElement {
     const formData: FormData = {
       method: selectedMethod,
       url: url,
+      body: body, // 28
     };
     props.handleApiCall(formData);
   };
@@ -30,16 +33,20 @@ function Form(props: FormProps): React.ReactElement {
     setSelectedMethod(method);
   };
 
+  // 43-47 body added 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <label>
           <span>URL: </span>
           <input name='url' type='text' value={url} onChange={(e) => setUrl(e.target.value)} />
-          <button type="submit">GO!</button>
         </label>
+        <label>
+          {/* <span>Request Body: </span> */}
+          {/* <textarea name='body' value={body} onChange={(e) => setBody(e.target.value)}></textarea> */}
+        </label>
+        <button type="submit">GO!</button>
         <label className="methods">
-          {/* Render method selection buttons */}
           {['GET', 'POST', 'PUT', 'DELETE'].map((method) => (
             <span key={method} id={method.toLowerCase()} className={selectedMethod === method ? 'active' : ''} onClick={() => handleMethodSelect(method)}>
               {method}

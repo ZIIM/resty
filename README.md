@@ -24,7 +24,7 @@ No Current Environmental Variables
     npm run dev
     npm start
 
-## Architecture
+### Architecture
 
 ```bash
 ├── .eslintrc.cjs
@@ -64,12 +64,14 @@ No Current Environmental Variables
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
+```
 
 ### Languages & tools
 
 - TypeScript
 - Vite
 - React
+- Vite Test
 
 ## Change Log
 

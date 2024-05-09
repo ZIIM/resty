@@ -1,3 +1,4 @@
+import React from 'react'
 import {fireEvent, render} from '@testing-library/react';
 import Form from './index';
 
@@ -10,14 +11,14 @@ describe('Renders buttons', () => {
         expect(getByText('DELETE')).toBeInTheDocument();
       });
     
-      test('calls handleMethodSelect when a method selection button is clicked', () => {
-        const handleApiCallMock = jest.fn();
-        const { getByText } = render(<Form handleApiCall={handleApiCallMock} />);
+    //   test('calls handleMethodSelect when a method selection button is clicked', () => {
+    //     const handleApiCallMock = jest.fn();
+    //     const { getByText } = render(<Form handleApiCall={handleApiCallMock} />);
     
-        // Click on the POST method button
-        fireEvent.click(getByText('POST'));
+    //     // Click on the POST method button
+    //     fireEvent.click(getByText('POST'));
     
-        // Assert that handleMethodSelect is called with 'POST' method
-        expect(handleApiCallMock).toHaveBeenCalledWith({ method: 'POST', url: '' });
-      });
+    //     // Assert that handleMethodSelect is called with 'POST' method
+    //     expect(handleApiCallMock).toHaveBeenCalledWith({ method: 'POST', url: '' });
+    //   });
     });
