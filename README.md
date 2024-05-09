@@ -28,34 +28,42 @@ No Current Environmental Variables
 
 ```bash
 ├── .eslintrc.cjs
+├── .github
+│   └── workflows
+│       └── node.yml
 ├── .gitignore
 ├── README.md
 ├── index.html
 ├── package-lock.json
 ├── package.json
 ├── public
-│   └── vite.svg
+│   └── vite.svg
 ├── src
-│   ├── App.scss
-│   ├── App.tsx
-│   ├── Components
-│   │   ├── Footer
-│   │   │   ├── Footer.scss
-│   │   │   └── index.tsx
-│   │   ├── Form
-│   │   │   ├── Form.scss
-│   │   │   └── index.tsx
-│   │   ├── Header
-│   │   │   ├── Header.scss
-│   │   │   └── index.tsx
-│   │   └── Results
-│   │       ├── Results.scss
-│   │       └── index.tsx
-│   └── main.tsx
+│   ├── App.scss
+│   ├── App.tsx
+│   ├── Components
+│   │   ├── Footer
+│   │   │   ├── Footer.scss
+│   │   │   ├── Footer.test.tsx
+│   │   │   └── index.tsx
+│   │   ├── Form
+│   │   │   ├── Form.scss
+│   │   │   ├── Form.test.tsx
+│   │   │   └── index.tsx
+│   │   ├── Header
+│   │   │   ├── Header.scss
+│   │   │   ├── Header.test.tsx
+│   │   │   └── index.tsx
+│   │   └── Results
+│   │       ├── Results.scss
+│   │       ├── Results.test.tsx
+│   │       └── index.tsx
+│   ├── __tests__
+│   │   └── setup.ts
+│   └── main.tsx
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
-```
 
 ### Languages & tools
 
