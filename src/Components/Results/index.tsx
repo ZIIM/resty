@@ -19,13 +19,20 @@ export interface ResultsProps{
 function Results(props: ResultsProps): React.ReactElement {
   // added this below to check that data is null for loading state 
   const isLoading = props.data === null; 
+
+  //pretty json
+  const prettyPrintJson = (data: Data) =>{
+    return JSON.stringify(data, undefined, 2);
+  }
   
     return (
       <section>
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          <pre>{JSON.stringify(props.data, undefined, 2)}</pre>
+          //pretty json
+          <pre>{prettyPrintJson(props.data)}</pre>
+          // <pre>{JSON.stringify(props.data, undefined, 2)}</pre>
         )}
       </section>
     );
@@ -33,8 +40,3 @@ function Results(props: ResultsProps): React.ReactElement {
 
 export default Results;
 
-// return (
-  //     <section>
-  //       <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
-  //     </section>
-  //   );
