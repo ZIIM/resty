@@ -1,50 +1,50 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import './App.scss';
-
-// Let's talk about using index.js and some other name in the component folder.
-// There's pros and cons for each way of doing this...
-// OFFICIALLY, we have chosen to use the Airbnb style guide naming convention. 
-// Why is this source of truth beneficial when spread across a global organization?
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Form from './Components/Form';
 import Results from './Components/Results';
+// import axios from 'axios';
 
-class App extends React.Component {
+interface Data {
+  count: number;
+  results: { name: string; url: string }[];
+}
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
-  }
+interface RequestParams {
+  method?: string;
+  url?: string;
+}
 
-  callApi = (requestParams) => {
+function App(): React.ReactElement {
+  const [data, setData] = useState<Data | null>(null);
+  const [requestParams, setRequestParams] = useState<RequestParams>({});
+
+  const callApi = (requestParams: RequestParams) => {
     // mock output
-    const data = {
+    const newData: Data = {
       count: 2,
       results: [
+        // maybe change these urls
         {name: 'fake thing 1', url: 'http://fakethings.com/1'},
         {name: 'fake thing 2', url: 'http://fakethings.com/2'},
       ],
     };
-    this.setState({data, requestParams});
+    setData(newData);
+    setRequestParams(requestParams);
   }
 
-  render() {
+  
     return (
-      <React.Fragment>
+        <React.Fragment>
         <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
-        <Form handleApiCall={this.callApi} />
-        <Results data={this.state.data} />
+        <div>Request Method: {requestParams.method}</div>
+        <div>URL: {requestParams.url}</div>
+        <Form handleApiCall={callApi} />
+        <Results data={data} />
         <Footer />
       </React.Fragment>
     );
-  }
 }
 
 export default App;
